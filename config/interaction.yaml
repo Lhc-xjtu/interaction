@@ -1,0 +1,44 @@
+interaction_node:
+  ros__parameters:
+    # 音频
+    sample_rate: 16000
+    mic_index: 0
+    frame_duration_ms: 30
+    max_silence_frames: 90
+    vad_threshold: 500.0
+    record_timeout: 8.0
+
+    # 蓝牙
+    bt_target_mac: "00:11:22:33:44:55" # 填入实际的 MAC
+
+    # 按键
+    button_pin: 17
+    button_pull_up: true
+    button_debounce_ms: 50
+    button_poll_interval_ms: 10
+
+    # PTT
+    ptt_record_file_base: "/tmp/record_voice"
+    ptt_a2dp_profile: "a2dp_sink"
+    ptt_hsp_profile: "headset_head_unit"
+    ptt_auto_switch_profile: true
+    ptt_max_keep_files: 5
+    ptt_poll_interval: 0.02
+    ptt_record_max_duration: 600.0
+
+    # KWS (数组形式)
+    keywords: ["你好小智", "小智小智"]
+
+    # ASR
+    enable_denoiser: false
+    use_online_asr: false
+
+    # NLU
+    nlu_wakeup_words: ["小智"]
+    # ROS2 传字典的变通方法：用 JSON 字符串
+    nlu_custom_rules: '{"greeting": {"patterns": ["你好"], "argument": ""}}'
+
+    # TTS
+    enable_tts: true
+    tts_model: "/path/to/zh_CN-huayan-medium.onnx"
+    tts_json: "/path/to/zh_CN-huayan-medium.onnx.json"
